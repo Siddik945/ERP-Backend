@@ -1,4 +1,5 @@
-import { UserRole } from '../constants/roles';
+import { PermissionKey } from "../constants/permissions";
+import { UserRole } from "../constants/roles";
 
 declare global {
   namespace Express {
@@ -7,6 +8,7 @@ declare global {
         userId: string;
         role: UserRole;
         email: string;
+        permissions: PermissionKey[];
       };
     }
   }
