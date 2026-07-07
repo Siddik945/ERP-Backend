@@ -8,7 +8,22 @@ import { apiRoutes } from "./routes";
 
 export const app = express();
 
-app.use(cors({ origin: env.clientUrl, credentials: true }));
+const allowedOrigins = ["http://localhost:5173", env.clientUrl];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }),
+);
+
+// app.use(cors({ origin: env.clientUrl, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
