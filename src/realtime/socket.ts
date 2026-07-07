@@ -118,7 +118,7 @@ const authenticateSocket = (
 export const initializeSocket = (httpServer: HttpServer): SocketServer => {
   const allowedOrigins = Array.from(
     new Set(
-      ["http://localhost:5173", env.clientUrl].filter(
+      ["https://erp-frontend-fllc.vercel.app", env.clientUrl].filter(
         (origin): origin is string =>
           typeof origin === "string" && Boolean(origin),
       ),

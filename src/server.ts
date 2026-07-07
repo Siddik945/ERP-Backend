@@ -14,11 +14,11 @@ const startServer = async (): Promise<void> => {
     initializeSocket(httpServer);
 
     httpServer.listen(env.port, () => {
-      // console.log(`HTTP API running on http://localhost:${env.port}`);
-      // console.log(`Socket.IO running on http://localhost:${env.port}`);
+      console.log(`HTTP API running on http://localhost:${env.port}`);
+      console.log(`Socket.IO running on http://localhost:${env.port}`);
     });
   } catch (error) {
-    // console.error("Failed to start server:", error);
+    console.error("Failed to start server:", error);
     process.exit(1);
   }
 };
