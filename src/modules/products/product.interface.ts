@@ -1,4 +1,4 @@
-import { Document, Types } from 'mongoose';
+import { Document, Types } from "mongoose";
 
 export interface IProduct extends Document<Types.ObjectId> {
   productName: string;
@@ -8,4 +8,5 @@ export interface IProduct extends Document<Types.ObjectId> {
   sellingPrice: number;
   stockQuantity: number;
   productImage: string;
+  productImagePublicId?: string;
 }
